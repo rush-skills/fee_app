@@ -14,18 +14,14 @@
 ActiveRecord::Schema.define(version: 20150319085048) do
 
   create_table "courses", force: true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.integer  "fee"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "courses", ["user_id"], name: "index_courses_on_user_id"
-
   create_table "fee_payments", force: true do |t|
     t.integer  "course_id"
-    t.integer  "user_id"
     t.integer  "student_id"
     t.integer  "institute_id"
     t.integer  "paid"
@@ -36,16 +32,12 @@ ActiveRecord::Schema.define(version: 20150319085048) do
   add_index "fee_payments", ["course_id"], name: "index_fee_payments_on_course_id"
   add_index "fee_payments", ["institute_id"], name: "index_fee_payments_on_institute_id"
   add_index "fee_payments", ["student_id"], name: "index_fee_payments_on_student_id"
-  add_index "fee_payments", ["user_id"], name: "index_fee_payments_on_user_id"
 
   create_table "institutes", force: true do |t|
     t.string   "name"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "institutes", ["user_id"], name: "index_institutes_on_user_id"
 
   create_table "rails_admin_histories", force: true do |t|
     t.text     "message"
@@ -61,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150319085048) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
 
   create_table "students", force: true do |t|
-    t.integer  "user_id"
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
@@ -80,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150319085048) do
   end
 
   add_index "students", ["institute_id"], name: "index_students_on_institute_id"
-  add_index "students", ["user_id"], name: "index_students_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

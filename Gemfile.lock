@@ -11,6 +11,14 @@ GIT
       warden (~> 1.2.3)
 
 GIT
+  remote: git://github.com/sudosu/rails_admin_pundit.git
+  revision: 285e3e79a37242cf7a527053e9b438782801557a
+  specs:
+    rails_admin_pundit (0.0.1)
+      pundit (>= 0.2.3)
+      rails_admin (>= 0.6.2)
+
+GIT
   remote: git://github.com/twbs/bootstrap-sass.git
   revision: 1f269b15ff91ebe35fc04959a6e38caecb19dc4f
   specs:
@@ -70,6 +78,8 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     debug_inspector (0.0.2)
+    enumerize (0.10.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.4.0)
     faraday (0.9.1)
@@ -131,6 +141,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.3)
       pry (>= 0.9.10)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     rack (1.5.2)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
@@ -477,13 +489,16 @@ DEPENDENCIES
   bundler
   coffee-rails (~> 4.0.0)
   devise!
+  enumerize
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
   omniauth-facebook
   pry-rails
+  pundit
   rails (= 4.1.4)
   rails_admin
+  rails_admin_pundit!
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form

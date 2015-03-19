@@ -55,3 +55,6 @@ gem 'omniauth-facebook'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'
 gem 'rails_admin'
+gem "pundit"
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
+gem 'enumerize'

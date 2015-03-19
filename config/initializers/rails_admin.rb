@@ -11,6 +11,8 @@ RailsAdmin.config do |config|
   ## == Cancan ==
   # config.authorize_with :cancan
 
+  config.authorize_with :pundit
+
   ## == PaperTrail ==
   config.audit_with :history
 
@@ -25,7 +27,6 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    show_in_app
 
     ## With an audit adapter, you can add:
     history_index
