@@ -1,0 +1,3 @@
+$.datepicker.setDefaults({
+    showMonthAfterYear: true
+});

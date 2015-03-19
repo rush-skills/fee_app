@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+  </head>
+  <% fee = @fee_payment%>
+  <body>
+    <div id="content">  
+      <div class="container-fluid wrapper">
+        <div class="row">
+          <div class="center heading">
+            <b>FEES RECIPT</b><span class="weak">(Student copy)</span>
+          </div>
+          <div class="center institute">
+            <b><%= fee.institute.name %></b>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="row maintext">
+                <br>
+                <div class="col-xs-5">
+                  Recipt Number
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.id%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Recieved From
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.student.first_name.to_s+" "+fee.student.middle_name.to_s+" "+fee.student.last_name.to_s%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Amount Received
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.paid%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Course Name
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.course.name%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Payment Mode
+                </div>
+                <div class="col-xs-7">
+                  : Cash
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="row maintext">
+                <br>
+                <div class="col-xs-5">
+                  Date Received
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.created_at.to_date.strftime("%B %d, %Y")%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-6 money">
+              <b>Total Paid:</b> Rs. <%= fee.paid %>
+            </div>
+            <div class="col-xs-6 money">
+              <b>Total Balance:</b> Rs. <%= fee.course.fee - fee.paid  %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-8">
+              <ul class="tandc">
+                <li>This receipt is subject to realisation of cheque.</li>
+                <li>This receipt should be carefully preserved and must be produced on demand.</li>
+                <li>Fees once paid are not refundable/transferable in any circumstances.</li>
+              </ul>
+            </div>
+            <div class="col-xs-2 sign">
+              <p>Student/Parent<br>Signatory</p>
+            </div>
+            <div class="col-xs-2 sign">
+             <p>Authorized<br>Signatory</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid wrapper" style="margin-top:40px">
+        <div class="row">
+          <div class="center heading">
+            <b>FEES RECIPT</b><span class="weak">(Admin Copy)</span>
+          </div>
+          <div class="center institute">
+            <b><%= fee.institute.name %></b>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="row maintext">
+                <br>
+                <div class="col-xs-5">
+                  Recipt Number
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.id%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Recieved From
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.student.first_name.to_s+" "+fee.student.middle_name.to_s+" "+fee.student.last_name.to_s%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Amount Received
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.paid%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Course Name
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.course.name%>
+                </div>
+              </div>
+              <div class="row maintext">
+                <div class="col-xs-5">
+                  Payment Mode
+                </div>
+                <div class="col-xs-7">
+                  : Cash
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="row maintext">
+                <br>
+                <div class="col-xs-5">
+                  Date Received
+                </div>
+                <div class="col-xs-7">
+                  : <%=fee.created_at.to_date.strftime("%B %d, %Y")%>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-6 money">
+              <b>Total Paid:</b> Rs. <%= fee.paid %>
+            </div>
+            <div class="col-xs-6 money">
+              <b>Total Balance:</b> Rs. <%= fee.course.fee - fee.paid  %>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xs-8">
+              <ul class="tandc">
+                <li>This receipt is subject to realisation of cheque.</li>
+                <li>This receipt should be carefully preserved and must be produced on demand.</li>
+                <li>Fees once paid are not refundable/transferable in any circumstances.</li>
+              </ul>
+            </div>
+            <div class="col-xs-2 sign">
+              <p>Student/Parent<br>Signatory</p>
+            </div>
+            <div class="col-xs-2 sign">
+             <p>Authorized<br>Signatory</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
