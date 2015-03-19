@@ -21,8 +21,22 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :rememberable,
+  devise :database_authenticatable, 
         :recoverable, :trackable, :validatable
   extend Enumerize
   enumerize :role, in: {:user => 0, :admin => 1}, default: :user
+  rails_admin do 
+  	list do
+      field :id
+      field :email
+      field :role
+    end
+    edit do
+      field :email
+      field :password
+      field :password_confirmation
+      field :role
+    end
+
+  end
 end
