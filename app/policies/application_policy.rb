@@ -54,7 +54,11 @@ class ApplicationPolicy
    def rails_admin?(action)
     case action
       when :dashboard
-        user.role.admin? or user.role.user?
+        if user.role.admin? or user.role.user?
+          true
+        else
+          redirect_to '/'
+        end
       when :index
         user.role.admin? or user.role.user?
       when :show
@@ -72,7 +76,7 @@ class ApplicationPolicy
       when :show_in_app
         user.role.admin? or user.role.user?
       else
-        raise ::Pundit::NotDefinedError, "unable to find policy #{action} for #{record}."
+        redirect_to '/admin'
     end
   end
 
